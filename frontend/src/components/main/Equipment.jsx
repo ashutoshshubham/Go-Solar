@@ -1,11 +1,12 @@
 import React from 'react'
 import { Formik } from 'formik'
 import Swal from 'sweetalert2';
+import { NavLink } from 'react-router-dom'
 
 
 const Equipment = () => {
 
-    const equipmentSubmit = async (formdata, {resetForm}) => {
+    const equipmentSubmit = async (formdata, { resetForm }) => {
         console.log(formdata)
         resetForm()
         const res = await fetch('http://localhost:5000/equipment/add', {
@@ -36,19 +37,24 @@ const Equipment = () => {
 
 
     return (
-        <div>
+        <div style={{height : '200vh'}}>
 
-            <div className="container my-5">
+            <div className="my-3">
+                <h1 className='text-center my-3'>PANEL DESCRIPTION</h1>
 
                 <div className="row">
 
-                    <div className="col-md-6 my-auto">
+                    <div className="col-md-6 mx-auto  my-auto">
                         <img src="https://assets.rbl.ms/29665013/origin.jpg" style={{ width: '100%' }} alt="" />
                     </div>
 
-                    <div className="col-md-6">
+                </div>
 
-                        <h1 className='text-center my-3'>PANEL DESCRIPTION</h1>
+                <div className="row  mt-3">
+
+                    <div className="col-md-6 mx-auto ">
+
+
 
                         <Formik
                             initialValues={{ name: "", category: '', details: "" }}
@@ -59,7 +65,7 @@ const Equipment = () => {
 
                                     <div className="mb-3">
                                         <label className="form-label" for="form12"><b>PANEL NAME</b></label>
-                                        <input required name='name' type="text" id="form12" className="form-control" onChange={handleChange} value={values.name}/>
+                                        <input required name='name' type="text" id="form12" className="form-control" onChange={handleChange} value={values.name} />
                                     </div>
 
                                     <div className="mb-3">
@@ -80,6 +86,8 @@ const Equipment = () => {
                             }
 
                         </Formik>
+
+                        <NavLink to='/main/browsing'>View All Components</NavLink>
 
 
 

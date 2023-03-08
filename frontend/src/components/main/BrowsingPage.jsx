@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const BrowsingPage = () => {
@@ -38,48 +39,54 @@ const BrowsingPage = () => {
   }
 
   return (
-    <div>
-      <div className="container">
-        <h1>ALL EQUIPMENTS HERE</h1>
-        <div>
-          <table className="table table-fixed align-middle text-center">
+    <div className="container vh-100">
+      <div >
+        <h1 className='text-center my-3'>ALL EQUIPMENTS HERE</h1>
 
-            <thead className="bg-success text-light">
-              <tr>
-                <th style={{ width: '8vw' }}>Panel Name</th>
-                <th style={{ width: 150 }}>Category</th>
-                <th style={{ width: '45vw' }}>Details</th>
-              </tr>
-            </thead>
+        {equipment.map((equip) => (
 
-            <tbody>
-              {
-                equipment.map((equip) => (
-                  <tr>
-                    <td>
-                      <div>
-                        {equip.name}
-                      </div>
-                    </td>
-                    <td>
-                      <div>
-                        {equip.category}
-                      </div>
-                    </td>
-                    <td>
-                      <p className="text-break">
-                        {equip.details}
-                      </p>
-                    </td>
-                  </tr>
+          <div className="accordion accordion-flush mb-3" id="accordionExample">
 
-                ))
-              }
-            </tbody>
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="headingOne">
+                <button
+                  className="accordion-button collapsed"
+                  type="button"
+                  data-mdb-toggle="collapse"
+                  data-mdb-target="#collapseOne"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                >
+                  <div className='d-block'>
+                    <h1>{equip.name}</h1>
+                  </div>
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                className="accordion-collapse collapse"
+                aria-labelledby="headingOne"
+                data-mdb-parent="#accordionExample"
+              >
+                <div className="accordion-body">
+                  <p>
+                    <h5>Category - {equip.category}</h5>
+                  </p>
+                  <p>{equip.details}</p>
+                  <button className="btn btn-danger" onClick={() => deleteEquipment(equip._id)}><span class="material-symbols-outlined">
+                    delete
+                  </span></button>
+                </div>
+              </div>
+            </div>
 
-          </table>
-        </div>
+          </div>
+
+        ))}
+
       </div>
+
+      <NavLink to='/main/equipment'>Go To Entry Page</NavLink>
     </div>
   )
 }
