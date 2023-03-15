@@ -16,8 +16,9 @@ import AdminProvider from "./context/AdminProvider";
 import { useState } from "react";
 import Equipment from "./components/main/Equipment";
 import BrowsingPage from "./components/main/BrowsingPage";
-// import CheckOutForm from "./components/main/CheckOutForm";
-import Checking from "./components/main/Checking";
+import CheckOutSuccess from "./components/main/CheckOutSuccess";
+import PayButton from "./components/main/PayButton";
+
 
 
 function App() {
@@ -52,8 +53,8 @@ function App() {
             <Route element={<Signup />} path="signup" />
             <Route element={<Equipment />} path='equipment' />
             <Route element={<BrowsingPage />} path='browsing' />
-            {/* <Route element={<CheckOutForm />} path='checkout' /> */}
-            <Route element={<Checking />} path='checking' />
+            <Route element={<PayButton />} path='paybutton' />
+            <Route element={<CheckOutSuccess />} path='checkout-success' />
           </Route>
 
           {/* <Route
