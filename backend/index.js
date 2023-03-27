@@ -9,6 +9,8 @@ const { PORT } = require('./config');
 
 const stripe = require('./routers/stripe')
 
+const product = require('./routers/product')
+
 const app = express();
 
 app.use(cors(
@@ -22,6 +24,7 @@ app.use(express.json());
 app.use('/user', userRouter);
 app.use('/equipment', equipmentRouter);
 app.use('/stripe', stripe);
+app.use('/product', product)
 
 
 app.get('/', (req, res) => {

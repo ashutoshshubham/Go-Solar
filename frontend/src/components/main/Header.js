@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 const Header = () => {
   return (
@@ -56,6 +57,12 @@ const Header = () => {
             <li className="nav-item">
               <NavLink className="btn btn-outline-white my-2" to="/main/signin">
                 Sign in
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="btn btn-outline-white my-2" style={{border: 'none'}}  to="/main/cart">
+                <AddShoppingCartIcon />
+                <span>3</span>
               </NavLink>
             </li>
           </ul>

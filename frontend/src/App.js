@@ -18,6 +18,7 @@ import Equipment from "./components/main/Equipment";
 import BrowsingPage from "./components/main/BrowsingPage";
 import CheckOutSuccess from "./components/main/CheckOutSuccess";
 import PayButton from "./components/main/PayButton";
+import Cart from "./components/main/Cart";
 
 
 
@@ -55,6 +56,7 @@ function App() {
             <Route element={<BrowsingPage />} path='browsing' />
             <Route element={<PayButton />} path='paybutton' />
             <Route element={<CheckOutSuccess />} path='checkout-success' />
+            <Route element={<Cart />} path='cart' />
           </Route>
 
           {/* <Route
