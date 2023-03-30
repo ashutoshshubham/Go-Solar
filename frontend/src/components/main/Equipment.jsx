@@ -57,7 +57,7 @@ const Equipment = () => {
 
 
                         <Formik
-                            initialValues={{ name: "", category: '', details: "" }}
+                            initialValues={{ name: "", category: '', details: "", price: '' }}
                             onSubmit={equipmentSubmit}>
 
                             {
@@ -77,6 +77,12 @@ const Equipment = () => {
                                         <label className="form-label" for="textAreaExample"><b>DETAILS</b></label>
                                         <textarea required name='details' className="form-control" id="textAreaExample" onChange={handleChange} value={values.details} rows="5"></textarea>
                                     </div>
+
+                                    <div className="mb-3">
+                                        <label className="form-label" for="form12"><b>PRICE</b></label>
+                                        <input required name='price' type="text" id="form12" className="form-control" onChange={handleChange} value={values.price} />
+                                    </div>
+
 
                                     <button type="submit" className="btn btn-success btn-rounded my-3 w-100" data-mdb-ripple-color="dark">Submit</button>
 
